@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as EncomendasIndexRouteImport } from './routes/encomendas.index'
+import { Route as EncomendasOrderIdRouteImport } from './routes/encomendas.$orderId'
+import { Route as LojasIndexRouteImport } from './routes/lojas.index'
+import { Route as LojasStoreIdRouteImport } from './routes/lojas.$storeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EncomendasIndexRoute = EncomendasIndexRouteImport.update({
+  id: '/encomendas/',
+  path: '/encomendas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EncomendasOrderIdRoute = EncomendasOrderIdRouteImport.update({
+  id: '/encomendas/$orderId',
+  path: '/encomendas/$orderId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojasIndexRoute = LojasIndexRouteImport.update({
+  id: '/lojas/',
+  path: '/lojas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojasStoreIdRoute = LojasStoreIdRouteImport.update({
+  id: '/lojas/$storeId',
+  path: '/lojas/$storeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/perfil': typeof PerfilRoute
+  '/encomendas/$orderId': typeof EncomendasOrderIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/encomendas/': typeof EncomendasIndexRoute
+  '/lojas/': typeof LojasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/perfil': typeof PerfilRoute
+  '/encomendas/$orderId': typeof EncomendasOrderIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/encomendas': typeof EncomendasIndexRoute
+  '/lojas': typeof LojasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/checkout': typeof CheckoutRoute
+  '/perfil': typeof PerfilRoute
+  '/encomendas/$orderId': typeof EncomendasOrderIdRoute
+  '/lojas/$storeId': typeof LojasStoreIdRoute
+  '/encomendas/': typeof EncomendasIndexRoute
+  '/lojas/': typeof LojasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/perfil'
+    | '/encomendas/$orderId'
+    | '/lojas/$storeId'
+    | '/encomendas/'
+    | '/lojas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/perfil'
+    | '/encomendas/$orderId'
+    | '/lojas/$storeId'
+    | '/encomendas'
+    | '/lojas'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrinho'
+    | '/checkout'
+    | '/perfil'
+    | '/encomendas/$orderId'
+    | '/lojas/$storeId'
+    | '/encomendas/'
+    | '/lojas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarrinhoRoute: typeof CarrinhoRoute
+  CheckoutRoute: typeof CheckoutRoute
+  PerfilRoute: typeof PerfilRoute
+  EncomendasOrderIdRoute: typeof EncomendasOrderIdRoute
+  LojasStoreIdRoute: typeof LojasStoreIdRoute
+  EncomendasIndexRoute: typeof EncomendasIndexRoute
+  LojasIndexRoute: typeof LojasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/encomendas/': {
+      id: '/encomendas/'
+      path: '/encomendas'
+      fullPath: '/encomendas/'
+      preLoaderRoute: typeof EncomendasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/encomendas/$orderId': {
+      id: '/encomendas/$orderId'
+      path: '/encomendas/$orderId'
+      fullPath: '/encomendas/$orderId'
+      preLoaderRoute: typeof EncomendasOrderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojas/': {
+      id: '/lojas/'
+      path: '/lojas'
+      fullPath: '/lojas/'
+      preLoaderRoute: typeof LojasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lojas/$storeId': {
+      id: '/lojas/$storeId'
+      path: '/lojas/$storeId'
+      fullPath: '/lojas/$storeId'
+      preLoaderRoute: typeof LojasStoreIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarrinhoRoute: CarrinhoRoute,
+  CheckoutRoute: CheckoutRoute,
+  PerfilRoute: PerfilRoute,
+  EncomendasOrderIdRoute: EncomendasOrderIdRoute,
+  LojasStoreIdRoute: LojasStoreIdRoute,
+  EncomendasIndexRoute: EncomendasIndexRoute,
+  LojasIndexRoute: LojasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
