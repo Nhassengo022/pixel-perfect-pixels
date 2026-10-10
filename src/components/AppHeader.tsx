@@ -31,7 +31,7 @@ export function AppHeader() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
         <Link to="/" className="flex min-w-0 items-center gap-2">
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground"><ShoppingBasket className="h-5 w-5" /></span>
-          <span className="truncate font-display text-lg font-bold">Kalunga<span className="text-primary"> Matola</span></span>
+          <span className="truncate font-display text-lg font-bold">Pertinho<span className="text-primary"> Matola</span></span>
         </Link>
         {isClient && (
           <nav className="flex items-center gap-1 text-sm font-medium">
