@@ -18,9 +18,9 @@ export type Order = {
   status: OrderStatus;
   paymentMethod: PaymentMethod;
   paymentStatus: PaymentStatus;
-  paymentRef?: string;
+  paymentRef?: string | undefined;
   address: string;
-  notes?: string;
+  notes?: string | undefined;
   courierId?: string;
   incident?: string;
   createdAt: string;

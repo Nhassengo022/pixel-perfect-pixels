@@ -29,7 +29,7 @@ const methods: { id: PaymentMethod; hint: string }[] = [
 function Checkout() {
   const { cart, products, settings, placeOrder } = useApp();
   const navigate = useNavigate();
-  const [addressId, setAddressId] = useState(demoCustomer.addresses[0].id);
+  const [addressId, setAddressId] = useState(demoCustomer.addresses[0]?.id ?? "");
   const [notes, setNotes] = useState("");
   const [method, setMethod] = useState<PaymentMethod>("dinheiro");
   const [ref, setRef] = useState("");

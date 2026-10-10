@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ComercianteRouteImport } from './routes/comerciante'
+import { Route as EstafetaRouteImport } from './routes/estafeta'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as EncomendasIndexRouteImport } from './routes/encomendas.index'
 import { Route as EncomendasOrderIdRouteImport } from './routes/encomendas.$orderId'
@@ -23,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CarrinhoRoute = CarrinhoRouteImport.update({
   id: '/carrinho',
   path: '/carrinho',
@@ -31,6 +39,16 @@ const CarrinhoRoute = CarrinhoRouteImport.update({
 const CheckoutRoute = CheckoutRouteImport.update({
   id: '/checkout',
   path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComercianteRoute = ComercianteRouteImport.update({
+  id: '/comerciante',
+  path: '/comerciante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstafetaRoute = EstafetaRouteImport.update({
+  id: '/estafeta',
+  path: '/estafeta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerfilRoute = PerfilRouteImport.update({
@@ -61,8 +79,11 @@ const LojasStoreIdRoute = LojasStoreIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
+  '/comerciante': typeof ComercianteRoute
+  '/estafeta': typeof EstafetaRoute
   '/perfil': typeof PerfilRoute
   '/encomendas/$orderId': typeof EncomendasOrderIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
@@ -71,8 +92,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
+  '/comerciante': typeof ComercianteRoute
+  '/estafeta': typeof EstafetaRoute
   '/perfil': typeof PerfilRoute
   '/encomendas/$orderId': typeof EncomendasOrderIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
@@ -82,8 +106,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/carrinho': typeof CarrinhoRoute
   '/checkout': typeof CheckoutRoute
+  '/comerciante': typeof ComercianteRoute
+  '/estafeta': typeof EstafetaRoute
   '/perfil': typeof PerfilRoute
   '/encomendas/$orderId': typeof EncomendasOrderIdRoute
   '/lojas/$storeId': typeof LojasStoreIdRoute
@@ -94,8 +121,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/carrinho'
     | '/checkout'
+    | '/comerciante'
+    | '/estafeta'
     | '/perfil'
     | '/encomendas/$orderId'
     | '/lojas/$storeId'
@@ -104,8 +134,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/carrinho'
     | '/checkout'
+    | '/comerciante'
+    | '/estafeta'
     | '/perfil'
     | '/encomendas/$orderId'
     | '/lojas/$storeId'
@@ -114,8 +147,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/carrinho'
     | '/checkout'
+    | '/comerciante'
+    | '/estafeta'
     | '/perfil'
     | '/encomendas/$orderId'
     | '/lojas/$storeId'
@@ -125,8 +161,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   CarrinhoRoute: typeof CarrinhoRoute
   CheckoutRoute: typeof CheckoutRoute
+  ComercianteRoute: typeof ComercianteRoute
+  EstafetaRoute: typeof EstafetaRoute
   PerfilRoute: typeof PerfilRoute
   EncomendasOrderIdRoute: typeof EncomendasOrderIdRoute
   LojasStoreIdRoute: typeof LojasStoreIdRoute
@@ -143,6 +182,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/carrinho': {
       id: '/carrinho'
       path: '/carrinho'
@@ -155,6 +201,20 @@ declare module '@tanstack/react-router' {
       path: '/checkout'
       fullPath: '/checkout'
       preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comerciante': {
+      id: '/comerciante'
+      path: '/comerciante'
+      fullPath: '/comerciante'
+      preLoaderRoute: typeof ComercianteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estafeta': {
+      id: '/estafeta'
+      path: '/estafeta'
+      fullPath: '/estafeta'
+      preLoaderRoute: typeof EstafetaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/perfil': {
@@ -197,8 +257,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   CarrinhoRoute: CarrinhoRoute,
   CheckoutRoute: CheckoutRoute,
+  ComercianteRoute: ComercianteRoute,
+  EstafetaRoute: EstafetaRoute,
   PerfilRoute: PerfilRoute,
   EncomendasOrderIdRoute: EncomendasOrderIdRoute,
   LojasStoreIdRoute: LojasStoreIdRoute,
